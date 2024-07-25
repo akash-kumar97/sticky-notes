@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
 import Trash from "../icons/Trash";
-import { setNewOffset } from "../utill";
+import { autoGrow, setNewOffset } from "../utill";
 
 const NoteCard = ({ note }) => {
     const [position, setPosition] = useState(JSON.parse(note.position));
@@ -54,11 +54,6 @@ const NoteCard = ({ note }) => {
         autoGrow(textAreaRef);
     }, [])
 
-    const autoGrow = (textAreaRef) => {
-        const { current } = textAreaRef;
-        current.style.height = "auto";//reset the height
-        current.style.height = current.scrollHeight + "px";
-    }
 
 
     return (
